@@ -23,14 +23,14 @@ class Menu:
             self.menu_text(
                 50,
                 "Mountain",
-                COLOR_ORANGE,
+                COLOR_WHITE,
                 ((WIN_WIDTH / 2), 70)
             )
 
             self.menu_text(
                 50,
                 "Shooter",
-                COLOR_ORANGE,
+                COLOR_WHITE,
                 ((WIN_WIDTH / 2), 120)
             )
 

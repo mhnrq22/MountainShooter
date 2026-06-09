@@ -10,7 +10,7 @@ from Const import WIN_WIDTH, COLOR_ORANGE, MENU_OPTION, COLOR_WHITE, COLOR_YELLO
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pygame.image.load('./asset/MenuBg.png')
+        self.surf = pygame.image.load('./asset/MenuBg.png').convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
 
     def run(self, ):
@@ -25,14 +25,14 @@ class Menu:
             self.menu_text(
                 50,
                 "Mountain",
-                COLOR_WHITE,
+                COLOR_ORANGE,
                 ((WIN_WIDTH / 2), 70)
             )
 
             self.menu_text(
                 50,
                 "Shooter",
-                COLOR_WHITE,
+                COLOR_ORANGE,
                 ((WIN_WIDTH / 2), 120)
             )
 

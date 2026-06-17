@@ -7,7 +7,7 @@ import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from Const import COLOR_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, SPAWN_TIME
+from Const import C_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, SPAWN_TIME, C_GREEN, C_CYAN
 from code.EntityMediator import EntityMediator
 from code.enemy import Enemy
 from code.entity import Entity
@@ -45,10 +45,33 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
+
                 if isinstance(ent, (Player, Enemy)):
                     shoot = ent.shoot()
                     if shoot is not None:
                         self.entity_list.append(shoot)
+                if ent.name == 'Player1':
+                    self.level_text(
+
+                        text_size=11,
+
+                        text=f'Player1 - Health: {ent.health} | Score: {ent.score}',
+
+                        text_color=C_GREEN,
+
+                        text_pos=(10, 25))
+
+                if ent.name == 'Player2':
+                    self.level_text(
+
+                        text_size=11,
+
+                        text=f'Player2 - Health: {ent.health} | Score: {ent.score}',
+
+                        text_color=C_CYAN,
+
+                        text_pos=(10, 45))
+
             # printed text
             self.level_text(
 
@@ -56,7 +79,7 @@ class Level:
 
                 text=f'{self.name} - Timeout: {self.timeout / 1000:.1f}s',
 
-                text_color=COLOR_WHITE,
+                text_color=C_WHITE,
 
                 text_pos=(10, 5)
 
@@ -68,7 +91,7 @@ class Level:
 
                 text=f'fps: {clock.get_fps():.0f}',
 
-                text_color=COLOR_WHITE,
+                text_color=C_WHITE,
 
                 text_pos=(10, WIN_HEIGHT - 35)
 
@@ -80,7 +103,7 @@ class Level:
 
                 text=f'entidades: {len(self.entity_list)}',
 
-                text_color=COLOR_WHITE,
+                text_color=C_WHITE,
 
                 text_pos=(10, WIN_HEIGHT - 20)
 
